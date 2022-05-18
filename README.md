@@ -22,8 +22,13 @@ Simple project to showcase how to generate `real time data` with `Django`, `DRF`
 > 👉 **Clone Sources** (this repo)
 
 ```bash
-$ git clone https://github.com/app-generator/sample-django-charts-js.git
-$ cd sample-django-charts-js
+$ git clone https://github.com/app-generator/sample-django-real-time-charts/
+$ cd sample-django-real-time-charts
+```
+
+```CMD
+>> git clone https://github.com/app-generator/sample-django-real-time-charts/
+>> cd sample-django-real-time-charts
 ```
 
 <br />
@@ -52,7 +57,7 @@ Get the latest version of `redis` from https://redis.io/download and follow the 
 
 Or for **Windows-based Systems**
 
-On windows, you'll need to get redis cli, click to download latest reddit package, then doble click on the redis file and open in file explorer after to install, type `c:\program files\redis` on the explorer search bar and click on `redis-cli.exe` and your redis server is opened already.
+On windows, you'll need to get latest redis cli from [https://github.com/tporadowski/redis](https://github.com/tporadowski/redis/releases/), click to download latest reddit package, then doble click on the redis file and open in file explorer after to install, type `c:\program files\redis` on the explorer search bar and click on `redis-cli.exe` and your redis server is opened already.
 
 <br />
 
