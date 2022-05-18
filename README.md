@@ -1,6 +1,6 @@
 # [Django Charts via DRF](https://blog.appseed.us/django-charts-via-drf-and-charts-js/)
 
-Simple project to showcase how to generate `real time data` with `Django`, `DRF` and  `Django Channels`, this data is then used to plot different charts with `Charts JS` in the `front-end`.
+Simple sample project to showcase  `real time data` generation with `Django` and `DRF` using  `Django Channels`, this data is then used to plot different real time charts with `Charts JS` and `bootstrap` in the `front-end`. The charts include `Bar chart`, `Pie Chart` and `Line chart`.
 .
 
 
