@@ -16,6 +16,7 @@ Simple sample project to showcase  `real time data` generation with `Django` and
 
 <br />
 > 👉 **Image** 
+
 ![charts1](https://user-images.githubusercontent.com/68183305/169057898-cd0148a8-047d-46cf-a586-b378199238d7.png)
 
 <br />
@@ -57,6 +58,7 @@ $ pip3 install -r requirements.txt
 
 <br />
 > 👉 **Image** 
+
 ![charts2](https://user-images.githubusercontent.com/68183305/169059259-286f9507-6317-422e-a697-bc56d73b2070.png)
 
 
