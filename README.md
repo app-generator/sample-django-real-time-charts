@@ -15,6 +15,10 @@ Simple sample project to showcase  `real time data` generation with `Django` and
 - `Styling`: BS5 (via CDN)
 
 <br />
+> 👉 **Image** 
+![charts1](https://user-images.githubusercontent.com/68183305/169057898-cd0148a8-047d-46cf-a586-b378199238d7.png)
+
+<br />
 
 
 ## ✨ How to use it
@@ -51,6 +55,12 @@ $ # Install modules - SQLite Database
 $ pip3 install -r requirements.txt
 ```
 
+<br />
+> 👉 **Image** 
+![charts2](https://user-images.githubusercontent.com/68183305/169059259-286f9507-6317-422e-a697-bc56d73b2070.png)
+
+
+<br />
 👉 **Download redis**
 
 Get the latest version of `redis` from https://redis.io/download and follow the installation guides, after installation run `redis-server` to start redis server.
