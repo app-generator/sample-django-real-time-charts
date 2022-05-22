@@ -76,6 +76,7 @@ On windows, you'll need to get latest redis cli from [https://github.com/tporado
 > 👉 **Migrate Database**
 
 ```bash
+$ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
 ```
