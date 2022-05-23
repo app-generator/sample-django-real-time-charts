@@ -17,8 +17,8 @@ socket.onmessage = function(event) {
         labels: Object.values(result),
         datasets: [{
             label: 'Users that have purchased products',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgb(44, 189, 19)',
+            borderColor: 'rgb(12, 61, 4)',
             data: Object.values(results)
         }]
     };
@@ -56,9 +56,9 @@ userPurchased.onmessage = function(event) {
             label: 'Users created',
             data: Object.values(data),
             backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'rgb(84, 4, 99)',
+                'rgb(206, 24, 240)',
+                'rgb(93, 57, 99)'
             ],
             hoverOffset: 4
         }]
@@ -93,8 +93,8 @@ userCreated.onmessage = function (event) {
         labels: months,
         datasets: [{
             label: 'Users that have purchased products',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgb(112, 6, 89)',
+            borderColor: 'rgb(209, 8, 166)',
             data: counts,
         }]
     };
