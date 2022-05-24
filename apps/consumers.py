@@ -1,7 +1,6 @@
-from channels.generic.websocket import AsyncWebsocketConsumer, WebsocketConsumer
+from channels.generic.websocket import WebsocketConsumer
 from apps.product.models import Product
 from apps.user.models import User
-from channels.db import database_sync_to_async
 from asgiref.sync import async_to_sync
 import calendar
 import json

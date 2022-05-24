@@ -8,9 +8,8 @@ from rest_framework.decorators import action
 from apps.user.models import User
 from apps.user.serializers import UserSerializer
 
-from rest_live.mixins import RealtimeMixin
 
-class UserViewSet(viewsets.ModelViewSet, RealtimeMixin):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     

@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'apps.user',
     
     'channels',
-    'rest_live',
     
     'import_export',
     'rest_framework'

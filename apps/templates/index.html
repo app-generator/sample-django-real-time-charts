@@ -26,9 +26,9 @@
         <h1 class="text-center">Product Stats</h1>
         <div class="content text-center px-5 mt-5">
             This is a simple example of a dashboard that shows the stats of a product. It's created using ChartJS
-            and Axios to fetch the data from a REST API. You can find the code of this project on
-            <a target="_blank" href="https://github.com/app-generator/sample-django-charts-js">Github</a> 
-            and an article about it <a target="_blank" href="https://blog.appseed.us/django-charts-via-drf-and-charts-js/">here</a>.
+            and Channels to fetch the data from a Data Base. You can find the code of this project on
+            <a target="_blank" href="https://github.com/app-generator/sample-django-real-time-charts">Github</a> 
+            and an article about it <a target="_blank" href="">here</a> you can add new product to the database over the REST API <a href="{% url 'create-product' %}">here</a> and channels should pick it up immediately. You can also view the API pattern <a href="{% url 'all-products' %}">here
         </div>
         <div class="row mt-5">
             <div class="col-6 mr-2">
@@ -37,7 +37,7 @@
                 </h2>
                 <canvas id="user-created"></canvas>
             </div>
-            <div class="col-6 ml-2">
+            <div class="col-4 ml-2">
                 <h2 class="text-center">
                     Percentage of users who bought a product
                 </h2>
