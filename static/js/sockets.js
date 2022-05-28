@@ -1,11 +1,15 @@
+// Product sales over months
+var productChart;
 let socket = new WebSocket('ws://' + window.location.host + '/ws/products/')
 
+socket.onopen = function(event) {
+    console.log("Successfully connected to the WebSocket.");
+}
 
+socket.onclose = function(event) {
+    console.log("WebSocket connection closed unexpectedly. Trying to reconnect in 2s...");
+}
 socket.onmessage = function(event) {
-    let test = event.data;
-    console.log(test + "okay");
-
-
     var text = JSON.parse(event.data);
     let data = text.data
 
@@ -30,18 +34,37 @@ socket.onmessage = function(event) {
     };
 
     // Creating new chart
-
-    new Chart(
+    productChart = new Chart(
         document.getElementById('product-sales'),
         configUserCreated
     );
     
     };
-    
+
+let addProductOverSocket = document.getElementById('productForm');
+addProductOverSocket.addEventListener('submit', (event) => {
+    event.preventDefault();
+    // send form value via product socket
+    socket.send(JSON.stringify({
+        "name": addProductOverSocket.name.value,
+        "description": addProductOverSocket.description.value,
+        "price": addProductOverSocket.price.value,
+        "quantity": addProductOverSocket.quantity.value,
+    }));
+    productChart.destroy(); // destroy previous chart before ploting new one
+    addProductOverSocket.value = "";
+});
     
 
-
+// Percentage of users who bought products
 let userPurchased = new WebSocket('ws://'+ window.location.host +'/ws/users-purchased/')
+userPurchased.onopen = function(event) {
+    console.log("Successfully connected to the WebSocket.");
+}
+
+userPurchased.onclose = function(event) {
+    console.log("WebSocket connection closed unexpectedly. Trying to reconnect in 2s...");
+}
 
 userPurchased.onmessage = function(event) {
     let data = event.data
@@ -77,7 +100,16 @@ userPurchased.onmessage = function(event) {
     );
 }
 
+// user created over months
 let userCreated = new WebSocket('ws://'+ window.location.host +'/ws/users-created/')
+
+userCreated.onopen = function(event) {
+    console.log("Successfully connected to the WebSocket.");
+}
+
+userCreated.onclose = function(event) {
+    console.log("WebSocket connection closed unexpectedly. Trying to reconnect in 2s...");
+}
 
 userCreated.onmessage = function (event) {
     let dat = JSON.parse(event.data)
@@ -86,7 +118,6 @@ userCreated.onmessage = function (event) {
     // generating months and counts array out of object
     let months = data.reduce((c,v) => c.concat(v), []).map(o =>o.month);
     let counts = data.reduce((c,v) => c.concat(v), []).map(o =>o.count);
-    console.log(months,counts)
     
 
     const dataUserCreated = {
@@ -111,4 +142,4 @@ userCreated.onmessage = function (event) {
         document.getElementById('user-created'),
         configUserCreated
     );
-}
+};

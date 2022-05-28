@@ -28,8 +28,9 @@
             This is a simple example of a dashboard that shows the stats of a product. It's created using ChartJS
             and Channels to fetch the data from a Data Base. You can find the code of this project on
             <a target="_blank" href="https://github.com/app-generator/sample-django-real-time-charts">Github</a> 
-            and an article about it <a target="_blank" href="">here</a> you can add new product to the database over the REST API <a href="{% url 'create-product' %}">here</a> and channels should pick it up immediately. You can also view the API pattern <a href="{% url 'all-products' %}">here
+            and an article about it <a target="_blank" href="">here</a> you can add new product to the database over the REST API <a target="_blank" href="{% url 'create-product' %}">here</a> or even add a new product over websocket <a href="#productForm">here</a> and channels should pick it up immediately. You can also view the API pattern <a href="{% url 'all-products' %}">here
         </div>
+
         <div class="row mt-5">
             <div class="col-6 mr-2">
                 <h2 class="text-center">
@@ -53,7 +54,34 @@
             </div>
         </div>
     </div> 
-
+<div class="container mt-5" >
+    <h1 class="text-center">Add new product over websocket connection</h1>
+    <p class="text-center">If new product is added over this connection or any other, 
+        it means the data <b>"product sales over month"</b> chart is processing has changed, 
+        the real time websocket connect and channels backend would proccess
+         this data and inform the chart without a need to manually refresh the page before seeing the changes.
+    </p>
+    <form name="productForm" id="productForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="input product name" aria-describedby="name">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="input product short description" aria-describedby="description">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="input product price" aria-describedby="price">
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="input product quantity" aria-describedby="quantity">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

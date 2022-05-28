@@ -13,7 +13,22 @@ class SalesConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_add)('sales',self.channel_name)
         
         self.accept()
-            
+    
+        data = self.get_data()
+        async_to_sync(self.channel_layer.group_send)(
+            'sales',
+            {
+                'type': 'send_data',
+                'data':data
+            }
+        )
+        
+        
+    def disconnect(self, close_code):
+        async_to_sync(self.channel_layer.group_discard)('sales',self.channel_name)
+    
+    
+    def get_data(self): 
         products = Product.objects.all()
         months = []
         for product in products:
@@ -27,20 +42,30 @@ class SalesConsumer(WebsocketConsumer):
                 'count': Product.objects.filter(created__month=month).count()
             })
         
+        return data
+    
+    def contact(self,event):
+        self.send(json.dumps(event))
+        
+        
+    def receive(self, text_data=None, bytes_data=None):
+        text_data_json = json.loads(text_data)
+        name = text_data_json['name']
+        description = text_data_json['description']
+        quantity_sold = text_data_json['quantity']
+        price = text_data_json['price']
+        
+        Product.objects.create(name=name, description=description, quantity_sold=quantity_sold, price=price)
+        
+        data = self.get_data()
         async_to_sync(self.channel_layer.group_send)(
             'sales',
             {
                 'type': 'send_data',
-                'data':data
+                'data': data,
             }
         )
-        
-        
-    def disconnect(self, close_code):
-        async_to_sync(self.channel_layer.group_discard)('sales',self.channel_name)
-    
-    def contact(self,event):
-        self.send(json.dumps(event))
+
         
     def send_data(self,event):
         self.send(json.dumps(event))
