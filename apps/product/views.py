@@ -25,7 +25,7 @@ def sales_over_month():
                 'month': calendar.month_name[month],
                 'count': Product.objects.filter(created__month=month).count()
             })
-        print('response')
+        print(data)
         async_to_sync(channel_layer.group_send)(
             'sales',
             {

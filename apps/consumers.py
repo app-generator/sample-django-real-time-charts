@@ -35,12 +35,16 @@ class SalesConsumer(WebsocketConsumer):
             }
         )
         
+        
     def disconnect(self, close_code):
         async_to_sync(self.channel_layer.group_discard)('sales',self.channel_name)
     
-    
+    def contact(self,event):
+        self.send(json.dumps(event))
+        
     def send_data(self,event):
         self.send(json.dumps(event))
+        
     
     
         
